@@ -21,7 +21,6 @@
           @click="currentState = key"
         >{{ state }}</a>
       </div>
-      <Badges/>
       <p class="description">Vue Moveable is Draggable! Resizable! Scalable! Rotatable!</p>
       <div class="buttons">
         <a href="https://github.com/probil/vue-moveable" target="_blank">Download</a>
