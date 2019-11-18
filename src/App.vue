@@ -3,7 +3,18 @@
     <div class="container">
       <Moveable
         class="moveable"
-        v-bind="moveable"
+        v-bind="moveable1"
+        @drag="handleDrag"
+        @resize="handleResize"
+        @scale="handleScale"
+        @rotate="handleRotate"
+        @warp="handleWarp"
+      >
+        <span>Vue Moveable</span>
+      </Moveable>
+      <Moveable
+        class="moveable"
+        v-bind="moveable2"
         @drag="handleDrag"
         @resize="handleResize"
         @scale="handleScale"
@@ -35,16 +46,26 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Frame } from "scenejs";
 import Moveable from "vue-moveable";
-import Badges from "@/components/Badges.vue";
 
 export default {
   name: "app",
   components: {
-    Moveable,
-    Badges
+    Moveable
   },
   data: () => ({
-    moveable: {
+    moveable1: {
+      draggable: true,
+      throttleDrag: 1,
+      resizable: false,
+      throttleResize: 1,
+      keepRatio: false,
+      scalable: true,
+      throttleScale: 0.01,
+      rotatable: true,
+      throttleRotate: 0.2,
+      pinchable: true
+    },
+    moveable2: {
       draggable: true,
       throttleDrag: 1,
       resizable: false,
